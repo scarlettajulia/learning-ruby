@@ -11,7 +11,7 @@ end
 
 def vowel?(char)
   vowel = ["a", "i", "u", "e", "o"]
-  return vowel.include?(char) ? true : false
+  return vowel.include?(char)
 end
 
 def swap_char(string)
