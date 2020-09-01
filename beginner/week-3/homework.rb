@@ -11,14 +11,12 @@ end
 
 def vowel?(char)
   vowel = ["a", "i", "u", "e", "o"]
-  return vowel.include?(char) ? true : false
+  return vowel.include?(char)
 end
 
 def swap_char(string)
   # Assumption always lower case, won't be empty, no special char
-  alphabets = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", 
-             "k", "l", "m", "n", "o", "p", "q", "r", "s", "t",
-             "u", "v", "w", "x", "y", "z"]
+  alphabets = ("a".."z").to_a
              
   # Move 9 forward for consonant, 5 backword for vowel
   result = ""
@@ -30,5 +28,5 @@ def swap_char(string)
   return result
 end
 
-input_string = get_input("Provided string = ")
+input_string = get_input("Provided string =")
 puts "Result = #{swap_char(input_string)}"
