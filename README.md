@@ -1,5 +1,10 @@
 # learning-ruby
-This repository holds all of my ruby code learning from Electives x Gojek Ruby for Begineer Classes. I will do some self project to use my Ruby skills.
+This repository holds all of my ruby code learning from Electives x Gojek Ruby for Begineer, Intermediate, and Advance Classes. I will do some self project to train my Ruby skills.
+
+# folder structure
+1. `beginner` - learn basic algorithm, function, object-oriented (abstraction, encapsulation, polymorphism)
+2. `intermediate` - to be defined
+3. `advance` - to be defined
 
 # resources 
 1. [Ruby documentation](https://ruby-doc.org/)
