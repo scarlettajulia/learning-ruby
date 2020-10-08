@@ -3,7 +3,7 @@ This repository holds all of my ruby code learning from Electives x Gojek Ruby f
 
 # folder structure
 1. `beginner` - learn basic algorithm, function, object-oriented (abstraction, encapsulation, polymorphism)
-2. `intermediate` - to be defined
+2. `intermediate` - learn basic web, database, mvc and unit test for web development.
 3. `advance` - to be defined
 
 # resources 
