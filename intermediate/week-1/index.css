@@ -1,0 +1,19 @@
+h1 {
+  font-family: sans-serif;
+}
+
+.monospace {
+  font-family: monospace;
+}
+
+.pink {
+  color : palevioletred;
+}
+
+#table {
+  font-family: sans-serif;
+}
+
+@keyframes left-to-right {
+  
+}
