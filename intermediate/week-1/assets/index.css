@@ -39,8 +39,8 @@ input[type=text]:focus {
   margin-bottom : 20px;
 }
 
-.margin-left {
-  margin-left: 10px;
+.margin-right {
+  margin-right: 10px;
 }
 
 a.router {
@@ -50,11 +50,11 @@ a.router {
 }
 
 a.router:link {
-  color : #25282B;
+  color : #A0A4A8;
 }
 
 a.router:visited {
-  color : #25282B;
+  color : #A0A4A8;
 }
 
 a.router:hover {
@@ -135,8 +135,7 @@ a.router:hover {
 }
 
 .table-div {
-  word-wrap: break-word;
-  word-break: break-all;
+  overflow-x:auto;
 }
 
 .col {
