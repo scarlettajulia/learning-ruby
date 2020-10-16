@@ -1,17 +1,157 @@
 h1 {
+  font-family: neo-sans;
+  color: #31B057;
+}
+
+table {
+  margin : auto;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  vertical-align: middle;
+}
+
+input[type=submit] {
+  background-color: #388BF2;
+  color : #ffffff;
+  font-family: neo-sans;
+  margin-top: 10px;
+  width: 100px;
+  max-width: 100%;
+}
+
+input[type=text] {
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid #52575C;
+  width : 100%;
+  margin-bottom : 20px;
+}
+
+input[type=text]:focus {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border-bottom: 2px solid #388BF2;
+  width : 100%;
+  margin-bottom : 20px;
+}
+
+.margin-left {
+  margin-left: 10px;
+}
+
+a.router {
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a.router:link {
+  color : #25282B;
+}
+
+a.router:visited {
+  color : #25282B;
+}
+
+a.router:hover {
+  color : #388BF2;
+}
+
+.roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
+.sans-serif {
   font-family: sans-serif;
 }
 
-.monospace {
-  font-family: monospace;
+@font-face {
+  font-family: "neo-sans";
+  src : url("font/Neo Sans Std Bold.otf") format("opentype"), url("font/Neo Sans Std Light.otf") format("opentype"), url("font/Neo Sans Std Regular.otf") format("opentype")
 }
 
-.pink {
-  color : palevioletred;
+.neo-sans {
+  font-family: neo-sans;
 }
 
-#table {
-  font-family: sans-serif;
+.green {
+  color : #31B057;
+}
+
+.black {
+  color : #25282B;
+}
+
+.white {
+  color : #ffffff;
+}
+
+.blue {
+  color : #388BF2;
+}
+
+.red {
+  color : #E52A34;
+}
+
+.yellow {
+  color : #FBAF18;
+}
+
+.orange {
+  color : #FC8338
+}
+
+.dark-grey {
+  color : #52575C;
+}
+
+.light-grey {
+  color : #E8E8E8;
+}
+
+.content {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  background-color:	#E8E8E8;
+}
+
+.body {
+  width: 60%;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.table-div {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.col {
+  width: 20%;
+}
+
+@media screen and (max-width: 400px) {
+  .content .body {
+    width: 100%;
+  }
+}
+
+.center {
+  align-items: center;
+  text-align: center;
 }
 
 @keyframes left-to-right {
