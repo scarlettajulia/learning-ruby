@@ -2,7 +2,7 @@
 This folder is used for the homework in week-2. All the SQL(s) can be accessed in the homework.sql files.
 
 # Entity Relationship Diagram
-<img src="homework-erd.png" width=500>
+<img src="homework-erd.png" width=700>
 
 # DDL Result Snapshots
 <img src="ddl-a.png" width=500>
@@ -16,4 +16,4 @@ This folder is used for the homework in week-2. All the SQL(s) can be accessed i
 <img src="dml-b.png" width=300>
 
 ## Select
-<img src="dml-c.png" width=1000>
+<img src="dml-c.png" width=700>
