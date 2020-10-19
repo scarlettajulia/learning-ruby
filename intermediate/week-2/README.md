@@ -4,8 +4,14 @@ This folder is used for the homework in week-2. All the SQL(s) can be accessed i
 # Entity Relationship Diagram
 ![Image can't be loaded.](homework-erd.png)
 
-# DDL Snapshots
-TBD
+# DDL Result Snapshots
+![Image can't be loaded.](ddl-a.png)
+![Image can't be loaded.](ddl-b.png)
 
-# DML Snapshots
-TBD
+# DML Result Snapshots
+## Insert
+![Image can't be loaded.](dml-a.png)
+![Image can't be loaded.](dml-b.png)
+
+## Select
+![Image can't be loaded.](dml-c.png)
