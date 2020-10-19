@@ -5,15 +5,15 @@ This folder is used for the homework in week-2. All the SQL(s) can be accessed i
 <img src="homework-erd.png" width=700>
 
 # DDL Result Snapshots
-<img src="ddl-a.png" width=500>
+<img src="snapshots/ddl-a.png" width=500>
 <br>
-<img src="ddl-b.png" width=500>
+<img src="snapshots/ddl-b.png" width=500>
 
 # DML Result Snapshots
 ## Insert
-<img src="dml-a.png" width=400>
+<img src="snapshots/dml-a.png" width=400>
 <br>
-<img src="dml-b.png" width=300>
+<img src="snapshots/dml-b.png" width=300>
 
 ## Select
-<img src="dml-c.png" width=700>
+<img src="snapshots/dml-c.png" width=1000>
