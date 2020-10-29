@@ -39,26 +39,26 @@ gem install mysql2-cs-bind
 
 ## Screenshot
 ### List
-<img src="snapshots/list.png" width=400>
+<img src="snapshots/list.png" width=600>
 
 ### Delete item
 After deletion of <b>Cordon Bleu</b>.\
-<img src="snapshots/delete.png" width=400>
+<img src="snapshots/delete.png" width=600>
 
 ### New item
 New food form.\
-<img src="snapshots/add.png" width=400>
+<img src="snapshots/add.png" width=600>
 
 After addition of <b>Red Velvet Bread Talk</b>.\
-<img src="snapshots/add_after.png" width=400>
+<img src="snapshots/add_after.png" width=600>
 
 ### Show item
 Show item of <b>Nasi Goreng Gila</b>.\
-<img src="snapshots/show.png" width=400>
+<img src="snapshots/show.png" width=600>
 
 ### Edit item
 Edit food form.\
-<img src="snapshots/edit.png" width=400>
+<img src="snapshots/edit.png" width=600>
 
 After edit information of <b>Bread</b>\
-<img src="snapshots/edit_after.png" width=400>
+<img src="snapshots/edit_after.png" width=600>
