@@ -20,9 +20,7 @@ class Category
   def self.find_all
     client = create_db_client
     raw_data = client.query ("select id, name from categories")
-    return [] if raw_data.count == 0
-    categories = convert_to_array(raw_data)
-    return categories.count > 1 ? categories : categories[0]
+    convert_to_array(raw_data)
   end
 
   def save 

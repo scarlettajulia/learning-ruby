@@ -21,9 +21,7 @@ class Item
   def self.find_all
     client = create_db_client
     raw_data = client.query ("select id, name, format(price, 0) as price from items")
-    return [] if raw_data.count == 0
-    items = convert_to_array(raw_data)
-    return items.count > 1 ? items : items[0]
+    convert_to_array(raw_data)
   end
 
   def save 

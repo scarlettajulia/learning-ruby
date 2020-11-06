@@ -1,4 +1,4 @@
-# Week-3 Homework
+# Week-4 Homework
 This folder is used for the homework and exercise in week-3.
 
 ## Project Structure
@@ -31,7 +31,6 @@ The structure of the project is explained in below. The tag `homework` means the
 ```
 gem install sinatra
 gem install mysql2
-gem install mysql2-cs-bind
 ```
 2. Login to mysql using the username and password. Copy and paste `db.sql` contents to mysql.
 3. Export the environment variables in terminal. Notes: DB_HOST can use `localhost` value for your personal environment.

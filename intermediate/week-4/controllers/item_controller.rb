@@ -28,26 +28,7 @@ class ItemController
     renderer.result(binding)
   end
 
-  def create(params)
-    item = Item.new({
-      name: params['name'],
-      price: params['price']
-    })
-    item.save
-    item_category = ItemCategory.new({
-      item_id: item.id,
-      category_id: params['category']
-    })
-    item_category.save
-  end
-
-  def update(params)
-    item = Item.new({
-      id: params['id'],
-      name: params['name'],
-      price: params['price']
-    })
-    item.save
+  def save_item_category(params)
     categories = Category.find_all
     categories.each do |category|
       key = 'category' + category.id.to_s
@@ -61,6 +42,26 @@ class ItemController
         item_category.delete
       end
     end
+  end
+
+  def create(params)
+    item = Item.new({
+      name: params['name'],
+      price: params['price']
+    })
+    item.save
+    params['id'] = item.id
+    save_item_category(params)
+  end
+
+  def update(params)
+    item = Item.new({
+      id: params['id'],
+      name: params['name'],
+      price: params['price']
+    })
+    item.save
+    save_item_category(params)
   end
 
   def delete(params)

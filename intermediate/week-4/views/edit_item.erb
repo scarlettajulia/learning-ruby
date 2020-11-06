@@ -16,12 +16,10 @@
           <label for="name">Name</label>
           <input type="text" id="name" name="name" value="<%= item.name %>">
           <br>
-          <br>
-          <label for="category">Category
+          <label for="category">Category</label>
           <% categories.each do |category| %>
-              <input type="checkbox" name="category<%= category.id %>" id="category">
-              <span class="checkmark"><%= category.name %></span>
-            </label>
+            <input type="checkbox" name="category<%= category.id %>" id="category">
+            <span class="checkmark"><%= category.name %></span>
           <% end %>
           <br>
           <label for="price">Price</label>
