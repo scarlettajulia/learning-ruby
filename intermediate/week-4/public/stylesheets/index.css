@@ -1,8 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;1,400;1,500&display=swap');
 
 h1 {
   font-family: 'Rubik', sans-serif;
   color: #31B057;
+}
+
+label {
+  font-weight: bold;
 }
 
 table {
@@ -40,7 +44,7 @@ input[type=submit] {
   font-family: 'Rubik', sans-serif;
   font-size: 14px;
   margin-top: 10px;
-  width: 100px;
+  width: 125px;
   max-width: 100%;
 }
 
