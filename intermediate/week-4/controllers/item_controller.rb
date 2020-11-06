@@ -5,26 +5,26 @@ require './models/item_category.rb'
 class ItemController
   def show
     items = Item.find_all
-    renderer = ERB.new(File.read("./views/list_items.erb"))
+    renderer = ERB.new(File.read("./views/items/list.erb"))
     renderer.result(binding)
   end
 
   def detail(params) 
     item = Item.find_by_id(params['id'])
-    renderer = ERB.new(File.read("./views/detail_item.erb"))
+    renderer = ERB.new(File.read("./views/items/detail.erb"))
     renderer.result(binding)
   end
 
-  def new_food_form
+  def new_form
     categories = Category.find_all
-    renderer = ERB.new(File.read("./views/new_item.erb"))
+    renderer = ERB.new(File.read("./views/items/new.erb"))
     renderer.result(binding)
   end
 
-  def edit_food_form(params)
+  def edit_form(params)
     categories = Category.find_all
     item = Item.find_by_id(params['id'])
-    renderer = ERB.new(File.read("./views/edit_item.erb"))
+    renderer = ERB.new(File.read("./views/items/edit.erb"))
     renderer.result(binding)
   end
 
