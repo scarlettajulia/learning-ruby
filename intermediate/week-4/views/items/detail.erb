@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Go Food App</title>
+  <link rel="stylesheet" href='/stylesheets/index.css'>
+</head>
+<body>
+  <div class="container">
+    <div class="col"></div>
+    <div class="body">
+      <h1><%= item.name %> Details</h1>
+      <div class="content roboto black">
+        <img src='/img/any.jpeg' alt="Image not found" height="150">
+        <p><b>Category</b>: <%= item.categories_string %></p>
+        <p>The price of <%= item.name %> is Rp<%= item.price %></p>
+      </div>
+      <a href="/items" class="router">Back</a>
+    </div>
+    <div class="col"></div>
+  </div>
+</body>
+</html>

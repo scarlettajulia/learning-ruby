@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Go Food App</title>
+  <link rel="stylesheet" href='/stylesheets/index.css'>
+</head>
+<body>
+  <div class="container">
+    <div class="col"></div>
+    <div class="body">
+      <h1>Edit Category</h1>
+      <form method="POST" action="/categories/update/<%= category.id %>">
+        <div class="content roboto black">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" value="<%= category.name %>">
+          <br>
+          <input type="submit" value="Save Category">
+        </div>
+      </form>
+      <a href="/categories" class="router">Back</a>
+    </div>
+    <div class="col"></div>
+  </div>
+</body>
+</html>

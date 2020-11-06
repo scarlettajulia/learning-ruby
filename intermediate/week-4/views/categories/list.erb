@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Go Food App</title>
+  <link rel="stylesheet" href='/stylesheets/index.css'>
+</head>
+<body>
+  <div class="container">
+    <div class="col"></div>
+    <div class="body">
+      <h1>Categories</h1>
+      <a href="/" class="router">Home</a>
+      <div class="content roboto black table-div">
+        <table id="table">
+          <tr>
+            <th>Name</th>
+            <th>Action</th>
+          </tr>
+          <% categories.each do |category| %>
+            <tr>
+              <td><%= category.name %></td>
+              <td>
+                <a href="/categories/items/<%= category.id %>" class="router margin-right">List Items</a>
+                <a href="/categories/edit/<%= category.id %>" class="router margin-right">Edit</a>
+                <a href="/categories/delete/<%= category.id %>" class="router margin-right">Destroy</a>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+      <a href="/categories/new" class="router">New Category</a>
+    </div>
+    <div class="col"></div>
+  </div>
+</body>

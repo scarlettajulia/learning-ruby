@@ -10,31 +10,23 @@
   <div class="container">
     <div class="col"></div>
     <div class="body">
-      <h1>Foods</h1>
+      <h1><%= category.name %> Items</h1>
       <div class="content roboto black table-div">
         <table id="table">
           <tr>
             <th>Name</th>
             <th>Price</th>
-            <th>Category</th>
-            <th>Action</th>
           </tr>
-          <% items %>
-          <% items.each do |item| %>
+          <% category.items %>
+          <% category.items.each do |item| %>
             <tr>
               <td><%= item.name %></td>
               <td><%= item.price %></td>
-              <td><%= item.categories_string %></td>
-              <td>
-                <a href="/items/detail/<%= item.id %>" class="router margin-right">Show</a>
-                <a href="/items/edit/<%= item.id %>" class="router margin-right">Edit</a>
-                <a href="/items/delete/<%= item.id %>" class="router margin-right">Destroy</a>
-              </td>
             </tr>
           <% end %>
         </table>
       </div>
-      <a href="/items/new" class="router">New Food</a>
+      <a href="/categories" class="router">Back</a>
     </div>
     <div class="col"></div>
   </div>
