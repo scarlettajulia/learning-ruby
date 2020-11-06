@@ -2,7 +2,7 @@ require './db/mysql_connector.rb'
 require './models/item.rb'
 
 class Category
-  attr_reader :name, :id
+  attr_reader :name, :id, :items
   def initialize(param={})
     @id = param[:id]
     @name = param[:name].nil? ? "No category" : param[:name]
@@ -20,7 +20,9 @@ class Category
   def self.find_all
     client = create_db_client
     raw_data = client.query ("select id, name from categories")
-    convert_to_array(raw_data)
+    return [] if raw_data.count == 0
+    categories = convert_to_array(raw_data)
+    return categories.count > 1 ? categories : categories[0]
   end
 
   def save 
@@ -51,9 +53,7 @@ class Category
   def self.find_items_by_category_id(category_id)
     client = create_db_client
     raw_data = client.query("select items.id as item_id, items.name as item_name, format(items.price, 0) as item_price from categories left join item_categories on categories.id = category_id left join items on items.id = item_id where category_id = '#{ category_id }'")
-    return nil if raw_data.count == 0
-    items = convert_items_to_array(raw_data)
-    return items.count > 1 ? items : items[0]
+    convert_items_to_array(raw_data)
   end
   
   def self.convert_items_to_array(raw_data) 
@@ -98,6 +98,6 @@ class Category
   end
 
   def to_s 
-    "Category @id = #{ @id } @name=#{ @name }" # ", @items=#{ self.items_string }"
+    "Category @id = #{ @id } @name=#{ @name }, @items=#{ self.items_string }"
   end
 end

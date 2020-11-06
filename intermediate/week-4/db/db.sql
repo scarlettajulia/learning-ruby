@@ -2,7 +2,7 @@ create database food_oms_db;
 use food_oms_db;
 
 -- DDL
-create table categories (id int auto_increment not null, name varchar(50) default null, primary key(id));
+create table categories (id int auto_increment not null, name varchar(50) default null unique, primary key(id));
 
 create table items (id int auto_increment not null, name varchar(50) default null, price decimal(10,2) default 0, primary key (id));
 

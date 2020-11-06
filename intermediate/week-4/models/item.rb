@@ -68,7 +68,6 @@ class Item
   def self.find_categories_by_item_id(item_id)
     client = create_db_client
     raw_data = client.query("select items.id as item_id, categories.id as category_id, categories.name as category_name from items left join item_categories on items.id = item_id left join categories on categories.id = category_id where items.id = '#{ item_id }'")
-    return nil if raw_data.count == 0
     categories = convert_categories_to_array(raw_data)
     return categories
   end
