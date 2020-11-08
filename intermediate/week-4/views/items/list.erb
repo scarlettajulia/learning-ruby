@@ -24,7 +24,7 @@
             <tr>
               <td><%= item.name %></td>
               <td><%= item.price %></td>
-              <td><%= item.categories_string %></td>
+              <td><%= item.categories_to_s %></td>
               <td>
                 <a href="/items/detail/<%= item.id %>" class="router margin-right">Show</a>
                 <a href="/items/edit/<%= item.id %>" class="router margin-right">Edit</a>

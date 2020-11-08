@@ -1,28 +1,32 @@
 require './db/mysql_connector.rb'
 require './models/item.rb'
+require './models/item_category.rb'
 
 class Category
   attr_reader :name, :id, :items
   def initialize(param={})
-    @id = param[:id]
-    @name = param[:name].nil? ? "No category" : param[:name]
-    @items = param[:items].nil? ? [] : param[:items]
+    @id = param[:id].nil? ? nil : param[:id].to_i
+    @name = param[:name]
+    @items = []
+  end
+
+  def items
+    item_categories = ItemCategory.find_by_category_id(@id)
+    @items = Item.get_items(item_categories)
   end
 
   def self.find_by_id(id)
     client = create_db_client
     raw_data = client.query("select id, name from categories where id = '#{ id }'")
-    return nil if raw_data.count == 0
-    categories = convert_to_array(raw_data)
-    return categories.count > 1 ? categories : categories[0]
+    client.close
+    convert_to_array(raw_data)
   end
 
   def self.find_all
     client = create_db_client
     raw_data = client.query ("select id, name from categories")
-    return [] if raw_data.count == 0
-    categories = convert_to_array(raw_data)
-    return categories.count > 1 ? categories : categories[0]
+    client.close
+    convert_to_array(raw_data)
   end
 
   def save 
@@ -34,6 +38,8 @@ class Category
     else
       client.query("update categories set name = '#{ @name }' where id = '#{ @id }'")
     end
+    client.close
+    true
   end
 
   def delete
@@ -43,6 +49,8 @@ class Category
       client.query("delete from item_categories where category_id = #{ @id }")
       client.query("delete from categories where id = #{ @id }")
     end
+    client.close
+    true
   end
 
   def valid?
@@ -50,54 +58,44 @@ class Category
     true
   end
 
-  def self.find_items_by_category_id(category_id)
-    client = create_db_client
-    raw_data = client.query("select items.id as item_id, items.name as item_name, format(items.price, 0) as item_price from categories left join item_categories on categories.id = category_id left join items on items.id = item_id where category_id = '#{ category_id }'")
-    convert_items_to_array(raw_data)
-  end
-  
-  def self.convert_items_to_array(raw_data) 
-    items = Array.new
-    raw_data.each do |row|
-      if row['item_id'].nil? 
-        next
-      end
-      item = Item.new({
-        id: row['item_id'],
-        name: row['item_name'],
-        price: row['item_price']
-      })
-      items << item
+  def self.get_categories(item_categories)
+    categories = Array.new
+    item_categories.each do |item_category|
+      category = Category.find_by_id(item_category.category_id)[0]
+      categories << category
     end
-    items
+    categories
   end
 
   def self.convert_to_array(raw_data)
     categories = Array.new
     raw_data.each do |row|
       category = Category.new({
-        id: row["id"],
-        name: row["name"],
-        items: Category.find_items_by_category_id(row['id'])
+        id: row['id'],
+        name: row['name']
       })
       categories << category
     end
-    categories
+    categories.sort_by(&:id)
   end
 
-  def to_s 
-    "#{ @name }"
-  end
-
-  def items_string
-    string = []
+  def items_to_s
+    items
+    return "No category" if @items.empty?
+    return @items[0].name if @items.length == 1
+    item_names = []
     @items.each do |item|
-      string << item.name
+      item_names << item.name
     end
-    string.join(", ")
+    items_except_last = item_names.slice(0, item_names.length - 1).join(", ")
+    "#{ items_except_last } and #{ item_names[-1] }"
+  end
+
+  def ==(category)
+    return self.id == category.id && self.name == category.name
   end
 
   def to_s 
-    "Category @id = #{ @id } @name=#{ @name }, @items=#{ self.items_string }"
+    "Category @id = #{ @id } @name=#{ @name }, @items=#{ self.items_to_s }"
   end
 end

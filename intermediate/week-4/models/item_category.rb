@@ -13,9 +13,11 @@ class ItemCategory
     return false unless valid?
     client = create_db_client
     item_category = ItemCategory.find_row(@item_id, @category_id)
-    if item_category.nil?
+    if item_category.empty?
       client.query("insert into item_categories (item_id, category_id) values ('#{ @item_id }', '#{ @category_id }')")
+      true
     end
+    false
   end
 
   def delete
@@ -33,30 +35,35 @@ class ItemCategory
   def self.find_row(item_id, category_id)
     client = create_db_client
     raw_data = client.query("select item_id, category_id from item_categories where item_id = '#{ item_id }' and category_id = '#{ category_id }'")
-    return nil if raw_data.count == 0
     item_categories = convert_to_array(raw_data)
-    return item_categories.count > 1 ? item_categories : item_categories[0]
+  end
+
+  def self.find_by_item_id(item_id)
+    client = create_db_client
+    raw_data = client.query("select item_id, category_id from item_categories where item_id = '#{ item_id }'")
+    item_categories = convert_to_array(raw_data)
+  end
+
+  def self.find_by_category_id(category_id)
+    client = create_db_client
+    raw_data = client.query("select item_id, category_id from item_categories where category_id = '#{ category_id }'")
+    item_categories = convert_to_array(raw_data)
   end
 
   def self.find_all
     client = create_db_client
     raw_data = client.query ("select items.id as item_id, category_id from items left join item_categories on items.id = item_categories.item_id")
-    return [] if raw_data.count == 0
-    item_categories = convert_to_array(raw_data)
-    return item_categories.count > 1 ? item_categories : item_categories[0]
+    convert_to_array(raw_data)
   end
 
   def self.convert_to_array(raw_data)
     item_categories = Array.new
     raw_data.each do |row|
-      if row['item_id'].nil? and row['category_id'].nil?
-        next
-      end
       item_category = ItemCategory.new({
         item_id: row['item_id'],
         category_id: row['category_id']
       })
-      item_categories << item_category
+      item_categories << item_category if item_category.valid?
     end
     item_categories
   end
